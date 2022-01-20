@@ -16,6 +16,7 @@ Assume the environment does not allow you to store 64-bit integers (signed or un
   -231 <= x <= 231 - 1
 
 ### Solution:
+```
 class Solution(object):
     def reverse(self, x):
         """
@@ -32,3 +33,4 @@ class Solution(object):
         if y < -pow(2, 31) or y > pow(2, 31) - 1:
             return 0
         return y
+```
