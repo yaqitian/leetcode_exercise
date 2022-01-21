@@ -1,4 +1,4 @@
-## Date:  2022-01-20
+## (1) Date:  2022-01-20
 ### 7. Reverse Integer
 ### Description:
 Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
@@ -34,7 +34,7 @@ class Solution(object):
         return y
 ```
 
-## Date:  2022-01-21
+## (2) Date:  2022-01-21
 ### 9. Palindrome Number
 ### Description:
 Given an integer x, return true if x is palindrome integer.
@@ -54,7 +54,7 @@ Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 #### Constraints:
 -231 <= x <= 231 - 1
-#### Solution:
+### Solution:
 ```python
 class Solution(object):
     def isPalindrome(self, x):
