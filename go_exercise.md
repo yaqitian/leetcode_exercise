@@ -143,3 +143,46 @@ func romanToInt(s string) int {
     return res
 }
 ```
+
+## 14. Longest Common Prefix
+Date:  2022-04-11
+https://leetcode.com/problems/longest-common-prefix/
+### Solution:
+```golang
+func longestCommonPrefix(strs []string) string {
+    res := ""
+    
+    // Case 1: empty list.
+    if len(strs) == 0 {
+        return res
+    }
+    
+    // Case 2: only 1 string.
+    if len(strs) == 1 {
+        return strs[0]
+    }
+    
+    // Case 3: more than 1 string.
+    minStr := strs[0]
+    minLen := len(minStr)
+    for _, str := range strs {
+        newLen := len(str)
+        if newLen < minLen {
+            minLen = len(str)
+            minStr = str
+        }
+    }
+    
+    for _, ch := range minStr {
+        for i := 0; i < len(strs); i++ { // can't use: for _, str := range strs
+            if string(strs[i][0]) == string(ch) {
+                strs[i] = strs[i][1:]
+            } else {
+                return res
+            }
+        }
+        res = res + string(ch)
+    }
+    
+    return res
+}```
