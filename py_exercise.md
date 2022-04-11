@@ -1,5 +1,5 @@
-## (1) Date:  2022-01-20
-### 7. Reverse Integer
+## (1) 7. Reverse Integer
+### Date:  2022-01-20
 ### Description:
 Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
 Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
@@ -34,8 +34,8 @@ class Solution(object):
         return y
 ```
 
-## (2) Date:  2022-01-21
-### 9. Palindrome Number
+## (2) 9. Palindrome Number
+### Date:  2022-01-21
 ### Description:
 Given an integer x, return true if x is palindrome integer.
 An integer is a palindrome when it reads the same backward as forward.
