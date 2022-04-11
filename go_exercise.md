@@ -101,3 +101,45 @@ func intToRoman(num int) string {
     return res
 }
 ```
+
+## 13. Roman to Integer
+Date:  2022-04-11
+https://leetcode.com/problems/roman-to-integer/
+### Solution:
+```golang
+func romanToInt(s string) int {
+    romanMap := map[string]int{
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000,
+    }
+    
+    // Case 1: only 1 roman number.
+    res := 0
+    if len(s) == 1 {
+        res = romanMap[s]
+        return res 
+    }
+    
+    // Case 2: more than 1 romam number.
+    numList := make([]int, 20)
+    for i := 0; i < len(s); i++ {
+        numList = append(numList, romanMap[s[i:i+1]]) 
+    }
+    
+    for i := 0; i < len(numList) - 1; i++ {
+        if numList[i] >= numList[i+1] {
+            res += numList[i]
+        } else {
+            res -= numList[i]
+        }
+    }
+    
+    res += numList[len(numList)-1]
+    return res
+}
+```
