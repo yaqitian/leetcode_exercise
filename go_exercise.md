@@ -220,3 +220,21 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
 }
 ```
 
+## 191. Number of 1 Bits
+Date:  2022-04-18
+https://leetcode.com/problems/number-of-1-bits/
+### Solution:
+```golang
+func hammingWeight(num uint32) int {
+    res := 0
+    for ; num > 0; num /= 2 {
+        bit := num % 2
+        if bit == 1 {
+            res += 1
+        }
+    }
+    
+    return res
+}
+```
+
