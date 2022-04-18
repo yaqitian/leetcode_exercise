@@ -187,3 +187,20 @@ func longestCommonPrefix(strs []string) string {
     return res
 }
 ```
+
+## 35. Search Insert Position
+Date:  2022-04-18
+https://leetcode.com/problems/search-insert-position/
+### Solution:
+```golang
+func searchInsert(nums []int, target int) int {
+    for i, num := range nums {
+        if target <= num {
+            return i
+        }
+    }
+    
+    return len(nums)
+}
+```
+
