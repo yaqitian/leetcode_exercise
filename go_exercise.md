@@ -204,3 +204,19 @@ func searchInsert(nums []int, target int) int {
 }
 ```
 
+## 88. Merge Sorted Array
+Date:  2022-04-18
+https://leetcode.com/problems/merge-sorted-array/
+### Solution:
+```golang
+func merge(nums1 []int, m int, nums2 []int, n int)  {
+    // Merge.
+    for i := 0; i < n; i++ {
+        nums1[i+m] = nums2[i]
+    }
+    
+    // Sort.
+    sort.Ints(nums1)
+}
+```
+
