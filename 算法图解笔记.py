@@ -54,3 +54,13 @@ def selectionSort(arr):
         smallest = findSmallest(arr)
         newArr.append(arr.pop(smallest)) 
     return newArr
+
+
+
+# 第四章 分治算法
+
+# 递归求和
+def sum(list):
+    if len(list) == 1:
+        return list[0]
+    return list[0] + sum(list[1:])
