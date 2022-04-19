@@ -59,9 +59,28 @@ def selectionSort(arr):
 
 # 第四章 分治算法
 
-# 递归求和
+# 4.1 请编写sum函数的递归代码。
 def sum(list):
     if len(list) == 0:
         return 0
     return list[0] + sum(list[1:])
+
+# 4.2 编写一个递归函数来计算列表包含的元素数。
+def num(list):
+    res = 0
+    while list:
+        list.pop()
+        res += 1
+    return res
+
+# 4.3 找出列表中最大的数字。
+def max(list):
+    if len(list) == 0:
+        return 0
+    if len(list) == 1:
+        return list[0]
+    submax = max(list[1:])
+    if list[0] >= submax:
+        return list[0]
+    return submax
 
