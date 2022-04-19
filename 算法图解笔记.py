@@ -61,6 +61,7 @@ def selectionSort(arr):
 
 # 递归求和
 def sum(list):
-    if len(list) == 1:
-        return list[0]
+    if len(list) == 0:
+        return 0
     return list[0] + sum(list[1:])
+
