@@ -84,3 +84,13 @@ def findMax(list):
 
 # 4.4 还记得第1章介绍的二分查找吗？它也是一种分而治之算法。你能找出二分查找算法的基线条件和递归条件吗？
 #     基线条件是 list[mid]==target，否则递归
+
+# 快速排序
+def quicksort(array): 
+    if len(array) < 2: 
+        return array 
+    else: 
+        pivot = array[0] 
+        less = [i for i in array[1:] if i <= pivot] 
+        greater = [i for i in array[1:] if i > pivot] 
+        return quicksort(less) + [pivot] + quicksort(greater) 
