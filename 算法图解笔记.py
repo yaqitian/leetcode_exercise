@@ -82,3 +82,5 @@ def findMax(list):
         return list[0]
     return submax
 
+# 4.4 还记得第1章介绍的二分查找吗？它也是一种分而治之算法。你能找出二分查找算法的基线条件和递归条件吗？
+#     基线条件是 list[mid]==target，否则递归
