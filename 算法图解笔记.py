@@ -16,11 +16,6 @@ def binary_search(list, item):
             low = mid + 1
     return None
 
-if __name__ == '__main__':
-    my_list = [1, 3, 5, 7, 9]
-    print(binary_search(my_list, 3))  # => 1
-    print(binary_search(my_list, -1))  # => None
-
 # 练习
 # 1.1 假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到？
 #     log 128 = 7
@@ -39,3 +34,23 @@ if __name__ == '__main__':
 #     O(n)，大O表示法不考虑乘以、除以、加上或减去的数字
 
 
+
+# 第二章 选择排序
+
+# 选择排序复杂度O(n x n)
+
+def findSmallest(arr):
+    smallest = arr[0]
+    smallest_index = 0
+    for i in range(1, len(arr)):
+        if arr[i] < smallest:
+            smallest = arr[i]
+            smallest_index = i
+    return smallest_index
+
+def selectionSort(arr):
+    newArr = [] 
+    for i in range(len(arr)): 
+        smallest = findSmallest(arr)
+        newArr.append(arr.pop(smallest)) 
+    return newArr
