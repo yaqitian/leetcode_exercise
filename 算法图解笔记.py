@@ -109,6 +109,7 @@ def find_lowest_cost_node(costs, processed):
             lowest_cost_node = node
     return lowest_cost_node
 
+# 无环图
 def prepare_1():
     # Initialize graph.
     graph = {}
@@ -154,6 +155,60 @@ def prepare_1():
 
 def solution_71():
     graph, costs, parents = prepare_1()
+
+    processed = []
+    node = find_lowest_cost_node(costs, processed)
+    while node is not None:
+        cost = costs[node]
+        neighbors = graph[node]
+        for n in neighbors.keys():
+            new_cost = cost + neighbors[n]
+            if costs[n] > new_cost:
+                costs[n] = new_cost
+                parents[n] = node
+        processed.append(node)
+        node = find_lowest_cost_node(costs, processed)
+
+    return costs["Final"]
+
+# 有环也可以自动忽略
+def prepare_2():
+    # Initialize graph.
+    graph = {}
+    graph["Start"] = {}
+    graph["Start"]["a"] = 10
+
+    graph["a"] = {}
+    graph["a"]["b"] = 20
+
+    graph["b"] = {}
+    graph["b"]["Final"] = 30
+    graph["b"]["c"] = 1
+
+    graph["c"] = {}
+    graph["c"]["a"] = 1
+
+    graph["Final"] = {}
+
+    # Initialize costs.
+    infinity = float("inf")
+    costs = {}
+    costs["a"] = 10
+    costs["b"] = infinity
+    costs["c"] = infinity
+    costs["Final"] = infinity
+
+    # Initialize parents.
+    parents = {}
+    parents["a"] = "Start"
+    parents["b"] = None
+    parents["c"] = None
+    parents["Final"] = None
+
+    return graph, costs, parents
+
+def solution_72():
+    graph, costs, parents = prepare_2()
 
     processed = []
     node = find_lowest_cost_node(costs, processed)
