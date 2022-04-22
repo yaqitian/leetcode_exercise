@@ -224,3 +224,59 @@ def solution_72():
         node = find_lowest_cost_node(costs, processed)
 
     return costs["Final"]
+
+# 有负权重是不正确的
+def prepare_3():
+    # Initialize graph.
+    graph = {}
+    graph["Start"] = {}
+    graph["Start"]["a"] = 2
+    graph["Start"]["b"] = 2
+
+    graph["a"] = {}
+    graph["a"]["c"] = 2
+    graph["a"]["Final"] = 2
+
+    graph["b"] = {}
+    graph["b"]["a"] = 2
+
+    graph["c"] = {}
+    graph["c"]["b"] = -1 # -1 is ok but -10 is not ok
+    graph["c"]["Final"] = 2
+
+    graph["Final"] = {}
+
+    # Initialize costs.
+    infinity = float("inf")
+    costs = {}
+    costs["a"] = 2
+    costs["b"] = 2
+    costs["c"] = infinity
+    costs["Final"] = infinity
+
+    # Initialize parents.
+    parents = {}
+    parents["a"] = "Start"
+    parents["b"] = "Start"
+    parents["c"] = None
+    parents["Final"] = None
+
+    return graph, costs, parents
+
+def solution_73():
+    graph, costs, parents = prepare_3()
+
+    processed = []
+    node = find_lowest_cost_node(costs, processed)
+    while node is not None:
+        cost = costs[node]
+        neighbors = graph[node]
+        for n in neighbors.keys():
+            new_cost = cost + neighbors[n]
+            if costs[n] > new_cost:
+                costs[n] = new_cost
+                parents[n] = node
+        processed.append(node)
+        node = find_lowest_cost_node(costs, processed)
+
+    return costs["Final"]
